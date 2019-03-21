@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HSB for Web : Analyze</title>
+<link type="text/css" href="font.css" rel="stylesheet"/>
+<script>
+    temp = location.href.split("?");
+    data = temp[1].split("&");
+    title = decodeURIComponent(decodeURI(data[0]));
+    date = data[1];
+</script>
+</head>
+<meta charset="utf-8">
+<body>
+<div>
+<script>document.write("<a href=\"script.html?" + title + "&" + date + "\">")</script><img src="back.png" height="60" width="60"></a>
+<div style="float:right;">
+<script>document.write("<a href=\"" + date + ".doc\">")</script><img src="download.png" height="60" width="60"></a>
+</div>
+</div>
+<div style="text-align:center;">
+<H1><script>document.write(title)</script></H1>
+</div>
+<h1>Keyword Cloud</h1>
+<script src="d3.js"></script>
+<script src="d3.layout.cloud.js"></script>
+<script>
+  var fill = d3.scale.category20();
+  var word = [];
+  var size = [];
+  var token = 0;
+  var count = 0;
+
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", date+"_keyword.xml",false);
+  xmlhttp.send();
+  xmlDoc = xmlhttp.responseXML; 
+
+  var x = xmlDoc.getElementsByTagName("WORD");
+  for (i=0; i<x.length; i++) {
+    word[i] = x[i].getElementsByTagName("TEXT")[0].childNodes[0].nodeValue;
+    size[i] = x[i].getElementsByTagName("SIZE")[0].childNodes[0].nodeValue;
+  }
+
+  for (var i = 0; i < word.length; i++) {
+    if (token < size[i]) token = size[i];
+  }
+
+  token = 60/token;
+
+  d3.layout.cloud().size([600, 300])
+      .words(word.map(function(d) {
+        return {
+            text: d, 
+            size: size[count++] * token};
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 5 * 15 - 30); })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+
+  function draw(words) {
+    d3.select("body").append("svg")
+        .attr("width", 600)
+        .attr("height", 300)
+      .append("g")
+        .attr("transform", "translate(300,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+
+document.write("<br/> · 이 회의의 키워드는 '" + word[0] + "'(으)로 추정됩니다.");
+</script>
+
+
+<h1>Speech Statics</h1>
+<div id='canvas'>
+<meta charset="utf-8">
+<style>
+body{
+    width:1060px;
+    margin:50px auto;
+}
+path {  stroke: #fff; }
+path:hover {  opacity:0.9; }
+rect:hover {  fill:blue; }
+.axis {  font: 15px sans-serif; }
+.legend tr{    border-bottom:1px solid grey; }
+.legend tr:first-child{    border-top:1px solid grey; }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {  display: none; }
+.legend{
+    margin-bottom:76px;
+    display:inline-block;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.legend td{
+    padding:4px 5px;
+    vertical-align:bottom;
+}
+.legendFreq, .legendPerc{
+    align:right;
+    width:50px;
+}
+
+</style>
+<body>
+<div id='dashboard'>
+</div>
+<script src="d3.v3.min.js"></script>
+<script>document.write("<script src='" + date + ".js'>\</script\>")</script>
+</div>
+</body>
+</html>

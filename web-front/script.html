@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HSB for Web : Script</title>
+<link rel="stylesheet" type="text/css" href="faq.css"/>
+<link type="text/css" href="font.css" rel="stylesheet"/>
+<script>
+	temp = location.href.split("?");
+	data = temp[1].split("&");
+	title = decodeURIComponent(decodeURI(data[0]));
+	date = data[1];
+</script>
+</head>
+<body>
+<div>
+<a href="index.html"><img src="back.png" height="60" width="60"></a>
+<div style="float:right;">
+<script>document.write("<a href=\"analyze.html?" + title + "&" + date + "\">")</script><img src="analyze.png" height="60" width="60"></a>
+<script>document.write("<a href=\"" + date + ".doc\">")</script><img src="download.png" height="60" width="60"></a>
+</div>
+</div>
+<div style="text-align:center;">
+<H1><script>document.write(title)</script></H1>
+</div>
+<div class="faq">
+	<div class="faqHeader">
+		<button type="button" class="showAll">답변 모두 여닫기</button>
+	</div>
+	<ul class="faqBody">
+		<script>
+	      xmlhttp = new XMLHttpRequest();
+	      xmlhttp.open("GET",date+"_script.xml",false);
+	      xmlhttp.send();
+	      xmlDoc = xmlhttp.responseXML; 
+
+	      var x = xmlDoc.getElementsByTagName("SCRIPT");
+	      for (i = 0; i < x.length; i++) { 
+	        document.write("<li class=\"article\" id=\"a1\"><p class=\"q\"><a href=\"#a" + (i+1) + "\"> <안건 #" + (i+1) + "> ");
+	        document.write(x[i].getElementsByTagName("AGENDA")[0].childNodes[0].nodeValue);
+	        document.write("</a></p><p class=\"a\">");
+	        document.write(x[i].getElementsByTagName("TEXT")[0].childNodes[0].nodeValue);
+	        document.write("<br/><strong><결론> ");
+	        document.write(x[i].getElementsByTagName("CONCLUSION")[0].childNodes[0].nodeValue);
+	        document.write("</strong></li>");
+	      }
+	      </script>
+	</ul>
+</div>
+<br />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+<script type="text/javascript" src="faq.js"></script>
+</body>
+</html>

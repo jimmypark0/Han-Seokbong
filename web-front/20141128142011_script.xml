@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TABLE>
+	<SCRIPT>
+		<AGENDA>내일은 끝나고 회식하는거 어떨까요</AGENDA>
+		<TEXT>Jiki : 우와 얼마만의 회식인지 맨날 동아리방에서 도시락만 먹다가 드디어 밖에서 먹는건가&lt;br/&gt;
+HyeRyeon : 나도 회식이라면 좋음&lt;br/&gt;
+Hyesu : 그래&lt;br/&gt;
+</TEXT>
+		<CONCLUSION>다들 수고 했으니 뒷풀이로 맛있는거 먹자</CONCLUSION>
+	</SCRIPT>
+	<SCRIPT>
+		<AGENDA>회식 메뉴는 뭐가 좋을까</AGENDA>
+		<TEXT>Jiki : 지난번 회식때 곱창은 다들 많이 못먹었던 것 같아 다들 좋아하는 메뉴로 정하자&lt;br/&gt;
+HyeRyeon : 그래  좋아 나는 치킨도 좋고 고기도 좋고 회도 좋고 맛있는 거라면 다 좋아&lt;br/&gt;
+Park : 마지막 회식인데 고기 먹읍시다 고기는 다들 좋지 않나요&lt;br/&gt;
+Jiki : 유종의 미로 팀장님이 쏘는 겁니까 그렇다면 저는 고기가 좋네요&lt;br/&gt;
+Hyesu : 오 박팀장님 고기 좋다&lt;br/&gt;
+HyeRyeon : 나도 고기 좋아&lt;br/&gt;
+Park : 그럼&lt;br/&gt;
+</TEXT>
+		<CONCLUSION>오픈 플랫폼 팀 마지막 회식 메뉴로 고기를 먹도록 하죠</CONCLUSION>
+	</SCRIPT>
+	<SCRIPT>
+		<AGENDA>회식 장소는 어디가 좋을까</AGENDA>
+		<TEXT>Jiki : 그 근처에서 먹자&lt;br/&gt;
+Hyesu : 각자 집 가는 방향도 다르고 그 근처가 좋을 것 같네&lt;br/&gt;
+HyeRyeon : 그래 근처에서 먹자 맛집으로 내가 알아볼게&lt;br/&gt;
+Hyesu : 응 고기는 어디서 먹어도 맛있으니까&lt;br/&gt;
+Park : 저도 어디든 좋지만&lt;br/&gt;
+</TEXT>
+		<CONCLUSION>임소공 대회 끝난 후 그 근처 고깃집에서 회식하도록 해요</CONCLUSION>
+	</SCRIPT>
+	<SCRIPT>
+		<AGENDA>제대로 뒤풀이도 할겸 서울 근교로 다같이 놀러가는 것 어때</AGENDA>
+		<TEXT>Hyesu : 오 좋다 뭔가 끝나서 시원 섭섭했는데 마지막 회포 풀어요&lt;br/&gt;
+Jiki : 저도 좋지만 갈거면 코봇 다른 팀 사람들도 다같이 가죠 &lt;br/&gt;
+HyeRyeon : 그래 그게 좋겠네&lt;br/&gt;
+Park : 그럼&lt;br/&gt;
+</TEXT>
+		<CONCLUSION>엠티 관련 내용은 다음 회의때 물어 보도록하죠</CONCLUSION>
+	</SCRIPT>
+</TABLE>

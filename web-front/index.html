@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HSB for Web Beta</title>
+    <link type="text/css" href="Style.css" rel="stylesheet"/>
+</head>
+<body>
+	<h1>HSB for Web Beta</h1>
+	<div id="outerDiv">
+		<div id="innerDiv">
+			<script>
+      xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET","info.xml",false);
+      xmlhttp.send();
+      xmlDoc = xmlhttp.responseXML; 
+
+      document.write("<table><tr><th>Title</th><th>Date</th><th>자세히</th></tr>");
+      var titles = [];
+      var dates = [];
+      var x=xmlDoc.getElementsByTagName("MEETING");
+      for (i=0;i<x.length;i++)
+        {
+          var title = x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+          var date = x[i].getElementsByTagName("DATE")[0].childNodes[0].nodeValue;
+          titles[i] = title;
+          dates[i] = date;
+        document.write("<tr><td>");
+        document.write(title);
+        document.write("</td><td>");
+        document.write(make_date_string(date));
+        document.write("</td><td>");
+        document.write("<INPUT type='BUTTON' value='>>' onclick='make_href(" + i + ")'>");
+        document.write("</td></tr>");
+        }
+      document.write("</table>");
+
+      function make_href(i){
+      	location.href="script.html?"+encodeURI(encodeURIComponent(titles[i]))+"&"+dates[i];
+      }
+      function make_date_string(i){
+        var temp = Number(i);
+        var date_string;
+        var year, month, day, h, m, s;
+
+        s = parseInt(temp % 100);
+        m = parseInt((temp / 100) % 100);
+        h = parseInt((temp / 10000) % 100);
+        day = parseInt((temp / 1000000) % 100);
+        month = parseInt((temp / 100000000) % 100);
+        year = parseInt(temp / 10000000000);
+
+        date_string = year + "/" + check_front_zero(month) + '/' + check_front_zero(day) + " " + check_front_zero(h) + ":" + check_front_zero(m) + ":" + check_front_zero(s);
+        return date_string;
+      }
+      function check_front_zero(i){
+        if(parseInt(i/10) == 0) {
+          return "0" + i;
+        } else {
+          return i;
+        }
+      }
+      </script>
+		</div>
+	</div>
+  <p style="color:gray; font-size: 12pt;">Kobot_op © 2014</p>
+</body>
+</html>

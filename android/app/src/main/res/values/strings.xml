@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HSB for Android</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+	<string name="endtMeeting">회의 종료</string>
+	<string name="item">안건</string>
+	<string name="conc">결론</string>
+
+	<string name="help">이름을 입력한 후 \'접속\'을 누르세요.</string>
+
+</resources>

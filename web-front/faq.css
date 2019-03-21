@@ -1,0 +1,33 @@
+.faq {
+	margin: 1em 0px; border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.faq .faqHeader {
+	position: relative; -ms-zoom: 1;
+}
+.faq .faqHeader .showAll {
+	background: none; padding: 0px; border: 0px currentColor; border-image: none; right: 0px; bottom: 0px; overflow: visible; position: absolute; cursor: pointer;
+}
+.faq .faqBody {
+	margin: 0px; padding: 0px;
+}
+.faq .faqBody .article {
+	list-style: none;
+}
+.faq .q {
+	margin: 0px; border-top-color: rgb(221, 221, 221); border-top-width: 1px; border-top-style: solid;
+}
+.faq .q a {
+	background: rgb(250, 250, 250); padding: 0.5em 1em; text-align: left; color: rgb(0, 0, 0); font-weight: bold; text-decoration: none !important; display: block;
+}
+.faq .q a:hover {
+	background: rgb(248, 248, 248);
+}
+.faq .q a:active {
+	background: rgb(248, 248, 248);
+}
+.faq .q a:focus {
+	background: rgb(248, 248, 248);
+}
+.faq .a {
+	margin: 0px; padding: 1em; line-height: 1.5;
+}
